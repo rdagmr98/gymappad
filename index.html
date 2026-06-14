@@ -149,6 +149,30 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
 .reveal.in{opacity:1;transform:none}
 @media(max-width:860px){.hero{grid-template-columns:1fr;text-align:center;padding-top:40px}
   .hero .lead{margin-left:auto;margin-right:auto}.cta-row,.trust{justify-content:center}.phonewrap{margin-top:20px}}
+
+/* hero: foto palestra di sfondo (web) + overlay scuro/ciano */
+.herowrap{position:relative;isolation:isolate}
+.herobg{position:absolute;inset:0;z-index:0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent)}
+.herobg .img{position:absolute;inset:0;background:url('img/hero-bg.jpg') center 26%/cover no-repeat;opacity:.42;filter:saturate(.95)}
+.herobg .ov{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.72) 66%,#000),
+   radial-gradient(55% 45% at 80% 15%,rgba(0,242,255,.20),transparent 60%)}
+.herowrap>.wrap{position:relative;z-index:1}
+
+/* fascia atmosfera: foto web di sfondo + anatomia (asset app) */
+.atmosband{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:98px 0}
+.atmosband .bg{position:absolute;inset:0;z-index:0;background:url('img/band-bg.jpg') center 28%/cover no-repeat}
+.atmosband .bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.93) 28%,rgba(0,0,0,.55) 68%,rgba(0,0,0,.82)),
+   radial-gradient(50% 60% at 80% 50%,rgba(0,242,255,.16),transparent 60%)}
+.atmosband .anat{position:absolute;right:-50px;top:50%;transform:translateY(-50%);width:540px;max-width:46vw;z-index:0;pointer-events:none;
+  -webkit-mask-image:radial-gradient(58% 60% at 55% 45%,#000 54%,transparent 82%);mask-image:radial-gradient(58% 60% at 55% 45%,#000 54%,transparent 82%);
+  filter:drop-shadow(0 0 50px rgba(0,242,255,.32));opacity:.92}
+.atmos{position:relative;z-index:1;max-width:620px}
+.atmos h2{font-size:clamp(30px,5vw,50px)}
+.atmos .sub{margin:14px 0 26px}
+@media(max-width:760px){.atmosband{padding:72px 0}.atmosband .anat{opacity:.26;right:-130px;width:420px}}
 </style>
 </head>
 <body>
@@ -161,6 +185,8 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
 </div></header>
 
 <a id="top"></a>
+<div class="herowrap">
+<div class="herobg"><div class="img"></div><div class="ov"></div></div>
 <div class="wrap">
   <section class="hero" style="padding-top:54px">
     <div>
@@ -189,6 +215,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
       <div class="phone"><span class="notch"></span><span class="scr"><img src="img/screen1.png" alt="GymApp dashboard"></span></div>
     </div>
   </section>
+</div>
 </div>
 
 <section id="funzioni"><div class="wrap">
@@ -219,6 +246,19 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
     <div class="shot reveal"><div class="pf"><img src="img/screen3.png" alt="Progressi"></div><div class="cap">I tuoi progressi<small>Grafici di crescita e costanza</small></div></div>
   </div>
 </div></section>
+
+<section class="atmosband reveal">
+  <div class="bg"></div>
+  <img class="anat" src="img/muscle.png" alt="Muscoli coinvolti">
+  <div class="wrap atmos">
+    <div class="kicker">Allena ogni muscolo</div>
+    <h2>Ogni serie ti avvicina<br>al <span class="accent">tuo obiettivo.</span></h2>
+    <p class="sub">Schede mirate per ogni gruppo muscolare, con animazioni e muscoli coinvolti per ogni esercizio. Sai sempre cosa stai allenando e perché.</p>
+    <div class="cta-row">
+      <a class="store primary" href="#scarica"><svg viewBox="0 0 24 24" fill="#001014"><path d="M12 2c1 3-1 4-2 6-1 1.6-3 3-3 6a5 5 0 0 0 10 0c0-2-1-3.2-2-4 .2 1.2-.4 2-1 2 .6-3-1.2-4.6-2-10z"/></svg><span class="tt"><small>Pronto a iniziare?</small><span>Scarica l'app</span></span></a>
+    </div>
+  </div>
+</section>
 
 <section id="video" class="videoband"><div class="wrap videogrid">
   <div class="vphone reveal"><video src="promo.mp4" autoplay muted loop playsinline controls poster="img/screen1.png"></video></div>
