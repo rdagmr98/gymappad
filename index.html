@@ -173,6 +173,18 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
 .atmos h2{font-size:clamp(30px,5vw,50px)}
 .atmos .sub{margin:14px 0 26px}
 @media(max-width:760px){.atmosband{padding:72px 0}.atmosband .anat{opacity:.26;right:-130px;width:420px}}
+
+/* libreria esercizi: gif animate dell'archivio in card chiare */
+.exgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.excard{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);transition:.25s}
+.excard:hover{transform:translateY(-6px);box-shadow:0 18px 46px rgba(0,0,0,.55),var(--glow);border-color:var(--accent)}
+.excard .im{position:relative;background:#fff}
+.excard .im img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.excard .im::after{content:"";position:absolute;inset:0;box-shadow:inset 0 -34px 30px -28px rgba(0,0,0,.18);pointer-events:none}
+.excard .n{padding:12px 10px;font-size:14px;font-weight:800;color:#0a0c11;text-align:center;background:#fff;border-top:1px solid #e7edf1}
+.exnote{margin-top:22px;color:var(--muted);font-size:14px;font-weight:600;display:flex;align-items:center;gap:9px;justify-content:center}
+.exnote svg{width:18px;height:18px;color:var(--accent)}
+@media(max-width:860px){.exgrid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -180,7 +192,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
 
 <header><div class="wrap nav">
   <a class="brand" href="#top"><img src="img/icon.png" alt="GymApp"><span>Gym<b>App</b></span></a>
-  <nav class="navlinks"><a href="#funzioni">Funzioni</a><a href="#anteprima">Anteprima</a><a href="#video">Video</a><a href="#scarica">Scarica</a></nav>
+  <nav class="navlinks"><a href="#funzioni">Funzioni</a><a href="#anteprima">Anteprima</a><a href="#esercizi">Esercizi</a><a href="#video">Video</a><a href="#scarica">Scarica</a></nav>
   <a class="cta" href="#scarica">Scarica l'app</a>
 </div></header>
 
@@ -259,6 +271,25 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;color:var(--mut
     </div>
   </div>
 </section>
+
+<section id="esercizi"><div class="wrap">
+  <div class="center" style="max-width:720px">
+    <div class="kicker reveal">Libreria esercizi</div>
+    <h2 class="reveal">Oltre 1200 esercizi, illustrati</h2>
+    <p class="sub center reveal">Per ogni movimento: animazione passo-passo e muscoli coinvolti evidenziati. Esegui sempre la tecnica giusta.</p>
+  </div>
+  <div class="exgrid">
+    <div class="excard reveal"><div class="im"><img src="img/ex/bench-press.webp" alt="Panca piana" loading="lazy"></div><div class="n">Panca piana</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/squat_con_bilanciere.webp" alt="Squat con bilanciere" loading="lazy"></div><div class="n">Squat bilanciere</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/deadlift.webp" alt="Stacco da terra" loading="lazy"></div><div class="n">Stacco da terra</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/lat-pulldown.webp" alt="Lat machine" loading="lazy"></div><div class="n">Lat machine</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/barbell-shoulder-press.webp" alt="Lento avanti" loading="lazy"></div><div class="n">Lento avanti</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/barbell-curl.webp" alt="Curl con bilanciere" loading="lazy"></div><div class="n">Curl bilanciere</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/dip.webp" alt="Dip alle parallele" loading="lazy"></div><div class="n">Dip parallele</div></div>
+    <div class="excard reveal"><div class="im"><img src="img/ex/dumbbell-lateral-raise.webp" alt="Alzate laterali" loading="lazy"></div><div class="n">Alzate laterali</div></div>
+  </div>
+  <div class="exnote reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>Animazione e muscoli coinvolti per ogni esercizio della tua scheda</div>
+</div></section>
 
 <section id="video" class="videoband"><div class="wrap videogrid">
   <div class="vphone reveal"><video src="promo.mp4" autoplay muted loop playsinline controls poster="img/screen1.png"></video></div>
